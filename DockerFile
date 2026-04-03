@@ -1,0 +1,27 @@
+FROM php:8.2-apache
+
+# Instalar Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Instalar extensiones PHP necesarias
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# Habilitar mod_rewrite para URLs limpias
+RUN a2enmod rewrite
+
+# Configurar AllowOverride para .htaccess
+RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
+
+WORKDIR /var/www/html
+
+# Copiar composer files primero (aprovecha la caché de Docker)
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+
+# Copiar el resto del proyecto
+COPY . .
+
+# Permisos correctos para Apache
+RUN chown -R www-data:www-data /var/www/html
+
+EXPOSE 80

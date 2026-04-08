@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../time_hours_connection.php';
+require '../KronoLog_connection.php';
 require '../../utility/auth.php';
 
 auth::needs_role(['admin', 'moderator', 'user']);
@@ -894,6 +894,7 @@ searchInput.value = ''; // Limpiar buscador
     </script>
 </body>
 </html>
+
 
 
 

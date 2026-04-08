@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../time_hours_connection.php';
+require '../KronoLog_connection.php';
 require '../../utility/auth.php';
 
 auth::needs_role(['admin', 'moderator','user']);
@@ -98,3 +98,4 @@ $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
     http_response_code(500);
     echo json_encode(['error'=>'Error al guardar el registro: '.$e->getMessage()]);
 }
+

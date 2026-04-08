@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../time_hours_connection.php';
+require '../KronoLog_connection.php';
 require '../../utility/auth.php';
 
 auth::needs_role(['admin', 'moderator','user']);
@@ -78,3 +78,4 @@ $stmt2->execute([$userId, $date]);
 $entries = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
 echo json_encode(['success' => true, 'entries' => $entries]);
+

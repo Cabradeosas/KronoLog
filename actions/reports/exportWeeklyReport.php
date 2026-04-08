@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../time_hours_connection.php';
+require '../KronoLog_connection.php';
 require '../../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -314,3 +314,4 @@ $writer->setPreCalculateFormulas(false);
 $writer->save('php://output');
 exit;
 ?>
+

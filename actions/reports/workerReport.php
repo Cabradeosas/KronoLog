@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../time_hours_connection.php';
+require '../KronoLog_connection.php';
 require '../../vendor/autoload.php';
 require_once '../../utility/auth.php';
 auth::needs_role(['admin']);

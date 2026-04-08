@@ -3,7 +3,7 @@ session_start();
 require_once '../../utility/auth.php';
 auth::needs_role(['admin','moderator','user']);
 
-require_once '../time_hours_connection.php';
+require_once '../KronoLog_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $clientId = (int) $_POST['client'];
@@ -30,3 +30,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     echo json_encode(['success' => true, 'services' => $services, 'client_id' => $clientId]);
 }
+

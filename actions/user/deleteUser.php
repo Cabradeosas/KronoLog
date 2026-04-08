@@ -4,7 +4,7 @@ require_once '../../utility/auth.php';
 // Solo los administradores pueden borrar
 auth::needs_role(['admin']);
 
-require_once '../time_hours_connection.php';
+require_once '../KronoLog_connection.php';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

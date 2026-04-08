@@ -4,7 +4,7 @@ session_start();
 set_time_limit(0);
 ini_set('memory_limit', '1024M');
 
-require '../time_hours_connection.php';
+require '../KronoLog_connection.php';
 require '../../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -580,3 +580,4 @@ $writer->setIncludeCharts(false);
 $writer->setPreCalculateFormulas(false);
 $writer->save('php://output');
 exit;
+

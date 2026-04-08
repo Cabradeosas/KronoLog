@@ -3,7 +3,7 @@
 session_start();
 
 require_once __DIR__ . '/../../utility/auth.php';
-require_once __DIR__ . '/../time_hours_connection.php';
+require_once __DIR__ . '/../KronoLog_connection.php';
 
 auth::needs_role(['admin']);
 
@@ -397,6 +397,7 @@ $currentWeek = date('W');
     <script src="../../js/forms_logic.js"></script>
 </body>
 </html>
+
 
 
 

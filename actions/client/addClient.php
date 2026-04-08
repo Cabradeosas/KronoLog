@@ -7,7 +7,7 @@ auth::needs_role(['admin','moderator']);
 // Si se ha enviado el POST ->
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Conecta con la base de datos
-    require_once '../time_hours_connection.php';
+    require_once '../KronoLog_connection.php';
     // Recoge si ya existe
     $stmt = $PDOconnection->prepare("SELECT * FROM client WHERE name = ? OR cif = ?");
     $stmt->execute([$_POST['client_name'], $_POST['client_cif']]);
@@ -39,3 +39,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Inmediatamente manda a client.php
     header("Location: ./client.php");
 }
+

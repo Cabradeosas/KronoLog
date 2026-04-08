@@ -6,7 +6,7 @@ auth::needs_role(['admin','moderator']);
 
 // Solo aceptar POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require_once '../time_hours_connection.php';
+    require_once '../KronoLog_connection.php';
 
     if (!isset($_POST['client_id'])) {
         $_SESSION['error'] = 'No se especificó el cliente';
@@ -40,3 +40,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 ?>
+

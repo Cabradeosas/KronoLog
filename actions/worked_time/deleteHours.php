@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../time_hours_connection.php';
+require '../KronoLog_connection.php';
 require '../../utility/auth.php';
 
 auth::needs_role(['admin', 'moderator','user']);
@@ -63,3 +63,4 @@ if ($stmt->execute([$id, $userId])) {
 } else {
     echo json_encode(['error' => 'Error al borrar registro']);
 }
+

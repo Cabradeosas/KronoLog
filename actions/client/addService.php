@@ -7,7 +7,7 @@ auth::needs_role(['admin','moderator']);
 // Si se ha enviado el POST ->
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Conecta con la base de datos
-    require_once '../time_hours_connection.php';
+    require_once '../KronoLog_connection.php';
 
     $clientId = $_POST['client'];
     $services = $_POST['services'] ?? [];
@@ -61,3 +61,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     header("Location: ./client.php");
 }
+

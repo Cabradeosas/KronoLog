@@ -1,5 +1,5 @@
 <?php
-require '../time_hours_connection.php';
+require '../KronoLog_connection.php';
 error_reporting(0); // Evita que warnings rompan el JSON
 header('Content-Type: application/json; charset=utf-8');
 
@@ -45,3 +45,4 @@ if ($mode === 'add') {
 
 $stmt->execute([$clientId]);
 echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+

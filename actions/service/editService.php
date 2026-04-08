@@ -3,7 +3,7 @@ session_start();
 require_once '../../utility/auth.php';
 auth::needs_role(['admin','moderator']);
 
-require_once '../time_hours_connection.php';
+require_once '../KronoLog_connection.php';
 
 header('Content-Type: application/json');
 
@@ -34,3 +34,4 @@ $stmtUpdate->execute([$name, $id]);
 
 echo json_encode(['success' => true]);
 exit;
+

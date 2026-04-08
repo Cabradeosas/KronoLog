@@ -2,7 +2,7 @@
 session_start();
 require_once '../../utility/auth.php';
 auth::needs_role(['admin','moderator']);
-require_once '../time_hours_connection.php';
+require_once '../KronoLog_connection.php';
 
 header('Content-Type: application/json; charset=UTF-8');
 
@@ -70,3 +70,4 @@ try{
     }
     echo json_encode(['success'=>false,'error'=>$errorMsg]);
 }
+

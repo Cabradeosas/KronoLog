@@ -2,7 +2,7 @@
 session_start();
 require_once '../../utility/auth.php';
 auth::needs_role(['admin', 'moderator']);
-require_once '../time_hours_connection.php';
+require_once '../KronoLog_connection.php';
 
 // Servicios existentes - Lógica original
 $services = [];
@@ -1069,6 +1069,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 </body>
 
 </html>
+
 
 
 

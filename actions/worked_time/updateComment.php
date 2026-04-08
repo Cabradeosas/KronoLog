@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../time_hours_connection.php';
+require '../KronoLog_connection.php';
 require '../../utility/auth.php';
 
 auth::needs_role(['admin', 'moderator', 'user']);
@@ -36,3 +36,4 @@ if ($stmt->execute([$message, $workedId])) {
 } else {
     echo json_encode(['success' => false, 'error' => 'Error al guardar la nota']);
 }
+

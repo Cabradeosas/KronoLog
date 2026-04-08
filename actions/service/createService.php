@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Guarda el nombre
     $serviceToCreate = $_POST['service_name'];
     // Conecta con la base de datos
-    require_once '../time_hours_connection.php';
+    require_once '../KronoLog_connection.php';
     // Recoge si ya existe
     $stmt = $PDOconnection->prepare("SELECT * FROM service WHERE BINARY name = ?");
     $stmt->execute([$serviceToCreate]);

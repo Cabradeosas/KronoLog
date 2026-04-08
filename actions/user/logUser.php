@@ -1,12 +1,12 @@
 <?php
     session_start();
-    require_once '../time_hours_connection.php';
+    require_once '../KronoLog_connection.php';
     // Si se ha enviado el POST (Única manera de llegar aquí) ->
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = trim(filter_input(INPUT_POST, 'user', FILTER_SANITIZE_STRING));
         $pass = trim(filter_input(INPUT_POST, 'pass'));
         // Conecta con la base de datos
-        require_once "../time_hours_connection.php";
+        require_once "../KronoLog_connection.php";
         // Recoge si existe
         $stmt = $PDOconnection->prepare("SELECT * FROM user WHERE BINARY name =
     ?");

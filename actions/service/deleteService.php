@@ -3,7 +3,7 @@ session_start();
 require_once '../../utility/auth.php';
 auth::needs_role(['admin','moderator']);
 
-require_once '../time_hours_connection.php';
+require_once '../KronoLog_connection.php';
 
 if (!isset($_GET['id'])) {
     $_SESSION['error'] = "Servicio no encontrado.";
@@ -20,3 +20,4 @@ $stmt->execute([$id]);
 $_SESSION['success'] = "Servicio eliminado correctamente.";
 header("Location: ./service.php");
 exit;
+

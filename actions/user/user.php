@@ -2,7 +2,7 @@
 session_start();
 require_once '../../utility/auth.php';
 auth::needs_role(['admin']);
-require_once '../time_hours_connection.php';
+require_once '../KronoLog_connection.php';
 
 /**
  * LÓGICA DE DATOS ORIGINAL
@@ -826,6 +826,7 @@ $status_translations = [
 </body>
 
 </html>
+
 
 
 

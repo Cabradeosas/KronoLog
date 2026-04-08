@@ -159,7 +159,8 @@ CREATE TABLE `user` (
   `mensual_cost` decimal(10,2) NOT NULL,
   `weekly_hours` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+INSERT INTO `user` (`id`, `name`, `role`, `hash`, `status`, `mensual_cost`, `weekly_hours`) VALUES
+(1, 'admin', 'admin', '$2y$10$a1t2GioAgBSTlaCwLVCJXOZto9cFgRDqCb89YTIwrnB6uxlTBzLa.', 'active', 0.00, 36);
 --
 -- Disparadores `user`
 --

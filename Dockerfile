@@ -1,24 +1,22 @@
-# Imagen base PHP 8.2 con Apache
 FROM php:8.2-apache
-
-# Instalar dependencias del sistema y extensiones PHP necesarias
-RUN apt-get update && apt-get install -y \
-    zip unzip curl git \
-    && docker-php-ext-install pdo pdo_mysql mysqli
 
 # Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Establecer directorio de trabajo
+# Instalar extensiones PHP
+RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+# Habilitar mod_rewrite
+RUN a2enmod rewrite
+RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
+
 WORKDIR /var/www/html
 
-# Copiar todo el proyecto al contenedor
+COPY composer.json composer.lock ./
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+
 COPY . .
 
-# Instalar dependencias de Composer sin paquetes de desarrollo
-RUN composer install --no-dev --optimize-autoloader
-
-# Asignar permisos correctos a Apache
 RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 80

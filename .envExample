@@ -1,0 +1,5 @@
+# Ejemplo de .env
+DB_HOST= localhost
+DB_NAME= kronoLog_db
+DB_USER= User
+DB_PASS= Pass

@@ -1,27 +1,11 @@
 services:
-  app:
-    build: .
+  kronolog:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: kronolog
+    restart: unless-stopped
     ports:
-      - "80:80"
-    environment:
-      - DB_HOST=db
-      - DB_NAME=${DB_NAME}
-      - DB_USER=${DB_USER}
-      - DB_PASS=${DB_PASS}
-    depends_on:
-      - db
-    restart: unless-stopped
-
-  db:
-    image: mysql:8.0
-    environment:
-      MYSQL_DATABASE: ${DB_NAME}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASS}
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
-    volumes:
-      - db_data:/var/lib/mysql
-    restart: unless-stopped
-
-volumes:
-  db_data:
+      - "8080:80"
+    env_file:
+      - .env
